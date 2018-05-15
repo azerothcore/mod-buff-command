@@ -10,12 +10,12 @@ public:
 	void LoadDB();
 
 	typedef std::vector<uint32> Kargatum_Buff_Container;
-	Kargatum_Buff_Container &GetBuffData() { return _Buff_Store; }
+	Kargatum_Buff_Container &GetBuffData() { return _buffStore; }
 
 private:
-	Kargatum_Buff_Container _Buff_Store;
+	Kargatum_Buff_Container _buffStore;
 };
 
-#define sKargatum_Buff ACE_Singleton<Kargatum_Buff, ACE_Null_Mutex>::instance()
+#define sKargatumBuff ACE_Singleton<Kargatum_Buff, ACE_Null_Mutex>::instance()
 
 #endif
