@@ -1,7 +1,7 @@
 #ifndef KARGATUM_BUFFCOMMAND_H
 #define KARGATUM_BUFFCOMMAND_H
 
-#include "ScriptPCH.h"
+#include "ScriptMgr.h"
 #include "AccountMgr.h"
 
 class Kargatum_Buff
