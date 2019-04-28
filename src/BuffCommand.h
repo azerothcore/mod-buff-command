@@ -3,6 +3,9 @@
 
 #include "ScriptMgr.h"
 #include "AccountMgr.h"
+#include "Player.h"
+#include "Chat.h"
+#include <vector>
 
 class Kargatum_Buff
 {
