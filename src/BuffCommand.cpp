@@ -53,7 +53,7 @@ public:
 		}
 		else
 		{
-			if (player->duel || player->GetMap()->IsBattleArena() || player->HasFlag(UNIT_FIELD_FLAGS_2, UNIT_FLAG2_FEIGN_DEATH) || player->isDead(), player->IsInCombat() || player->IsInFlight())
+			if (player->duel || player->GetMap()->IsBattleArena() || player->HasFlag(UNIT_FIELD_FLAGS_2, UNIT_FLAG2_FEIGN_DEATH) || player->IsDead(), player->IsInCombat() || player->IsInFlight())
 			{
 				handler->SendSysMessage("You can not do it now");
 				handler->SetSentErrorMessage(true);
