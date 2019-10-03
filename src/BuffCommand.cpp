@@ -1,4 +1,10 @@
+#include "ScriptMgr.h"
 #include "BuffCommand.h"
+#include "World.h"
+#include "WorldSession.h"
+#include "Config.h"
+
+std::unordered_map<uint64, uint32> BuffCooldown;
 
 void Kargatum_Buff::LoadDB()
 {
@@ -58,9 +64,25 @@ public:
 				handler->SendSysMessage("You can not do it now");
 				handler->SetSentErrorMessage(true);
 				return false;
-			}
+            }
+            
+            auto searchGUID = BuffCooldown.find(player->GetGUID());
 
-			player->RemoveAurasByType(SPELL_AURA_MOUNTED);
+            if (searchGUID == BuffCooldown.end())
+                BuffCooldown[player->GetGUID()] = 0; // Leader GUID not found, initialize with 0
+
+            if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] < sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) || sWorld->GetGameTime() == BuffCooldown[player->GetGUID()])
+            {
+                handler->SendSysMessage(("You have to wait atleast " + std::to_string(sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120)) + " seconds before using .buff again!").c_str());
+                handler->SetSentErrorMessage(true);
+				return false;
+            }
+
+            if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] >= sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120)) {
+            	BuffCooldown[player->GetGUID()] = sWorld->GetGameTime();
+            }
+            
+            player->RemoveAurasByType(SPELL_AURA_MOUNTED);
 
 			Kargatum_Buff::Kargatum_Buff_Container& sn = sKargatumBuff->GetBuffData();
 			for (auto i : sn)

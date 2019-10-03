@@ -1,0 +1,15 @@
+[worldserver]
+###################################################################################################
+# BUFF COMMAND
+#
+# Settings to control the cooldown of .buff command
+#
+#    BuffCommand.Cooldown
+#        Description: Enables Cooldown for .buff command
+#        Default:     120 - (Enabled)
+#                     0 - (Disabled)
+
+BuffCommand.Cooldown = 120
+
+#
+###################################################################################################
