@@ -1,3 +1,4 @@
+#include "ScriptMgr.h"
 #include "BuffCommand.h"
 #include "World.h"
 #include "WorldSession.h"
@@ -72,7 +73,7 @@ public:
                 
             if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] < sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) || sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) != 0)
             {
-                handler->SendSysMessage("You have to wait atleast %d seconds before using .buff again!",  sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120));
+                handler->SendSysMessage(("You have to wait atleast " + std::to_string(sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120)) + " seconds before using .buff again!").c_str());
                 handler->SetSentErrorMessage(true);
 				return false;
             }
