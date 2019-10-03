@@ -71,11 +71,14 @@ public:
             if (searchGUID == BuffCooldown.end())
                 BuffCooldown[player->GetGUID()] = 0; // Leader GUID not found, initialize with 0
                 
-            if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] < sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) || sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) != 0)
+            if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] < sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120))
             {
                 handler->SendSysMessage(("You have to wait atleast " + std::to_string(sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120)) + " seconds before using .buff again!").c_str());
                 handler->SetSentErrorMessage(true);
 				return false;
+            }
+            else if (sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) == 0 || sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] > sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120)) {
+            	BuffCooldown[player->GetGUID()] = sWorld->GetGameTime();
             }
             
             player->RemoveAurasByType(SPELL_AURA_MOUNTED);
