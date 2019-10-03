@@ -27,7 +27,7 @@ BuffCommand.Enable = 1
 # Settings to control the cooldown of .buff command
 #
 #    BuffCommand.Cooldown
-#        Description: Enables Cooldown for .buff command
+#        Description: Enable Cooldown for .buff command
 #        Default:     120 - (Enabled)
 #                     0 - (Disabled)
 
