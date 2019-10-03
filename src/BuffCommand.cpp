@@ -1,4 +1,9 @@
 #include "BuffCommand.h"
+#include "World.h"
+#include "WorldSession.h"
+#include "Config.h"
+
+std::unordered_map<uint64, uint32> BuffCooldown;
 
 void Kargatum_Buff::LoadDB()
 {
@@ -61,6 +66,13 @@ public:
 			}
 
 			player->RemoveAurasByType(SPELL_AURA_MOUNTED);
+            
+            if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] < sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) || sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) != 0)
+            {
+                handler->SendSysMessage("You have to wait atleast %d seconds before using .buff again!",  sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120));
+                handler->SetSentErrorMessage(true);
+				return false;
+            }
 
 			Kargatum_Buff::Kargatum_Buff_Container& sn = sKargatumBuff->GetBuffData();
 			for (auto i : sn)
@@ -83,8 +95,25 @@ public:
 	}
 };
 
+class Kargatum_Config : public WorldScript
+{
+public: Kargatum_Config() : WorldScript("Kargatum_Config") { };
+    void OnBeforeConfigLoad(bool reload) override
+    {
+        if (!reload) {
+            std::string conf_path = _CONF_DIR;
+            std::string cfg_file = conf_path + "/BuffCommand.conf";
+            std::string cfg_file_2 = cfg_file + ".dist";
+
+            sConfigMgr->LoadMore(cfg_file_2.c_str());
+            sConfigMgr->LoadMore(cfg_file.c_str());
+        }
+    }
+};
+
 void AddBuffCommandScripts()
 {
 	new KargatumCS_BuffCOmmand();
 	new Kargatum_BuffLoad();
+    new Kargatum_Config();
 }
