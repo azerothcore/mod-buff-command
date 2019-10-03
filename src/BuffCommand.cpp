@@ -49,6 +49,12 @@ public:
 	{
 		Player* player = handler->GetSession()->GetPlayer();
 		std::string ArgStr = (char*)args;
+        
+        if (sConfigMgr->GetIntDefault("BuffCommand.Enable", 1) == 0) {
+            handler->SendSysMessage("The command is currently disabled");
+            handler->SetSentErrorMessage(true);
+            return false;
+        }
 
 		if (ArgStr == "reload" && AccountMgr::IsAdminAccount(player->GetSession()->GetSecurity()))
 		{
