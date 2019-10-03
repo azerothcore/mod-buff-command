@@ -18,7 +18,7 @@ With this command, all the spell id's specified in the table are applied to the 
 # Settings to control the .buff command
 #
 #    BuffCommand.Enable
-#        Description: Enables the .buff command
+#        Description: Enable the .buff command
 #        Default:     1 - (Enabled)
 #                     0 - (Disabled)
 
