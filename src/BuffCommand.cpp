@@ -104,25 +104,8 @@ public:
 	}
 };
 
-class Kargatum_Config : public WorldScript
-{
-public: Kargatum_Config() : WorldScript("Kargatum_Config") { };
-    void OnBeforeConfigLoad(bool reload) override
-    {
-        if (!reload) {
-            std::string conf_path = _CONF_DIR;
-            std::string cfg_file = conf_path + "/BuffCommand.conf";
-            std::string cfg_file_2 = cfg_file + ".dist";
-
-            sConfigMgr->LoadMore(cfg_file_2.c_str());
-            sConfigMgr->LoadMore(cfg_file.c_str());
-        }
-    }
-};
-
 void AddBuffCommandScripts()
 {
 	new KargatumCS_BuffCOmmand();
 	new Kargatum_BuffLoad();
-    new Kargatum_Config();
 }
