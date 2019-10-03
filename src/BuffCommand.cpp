@@ -63,16 +63,21 @@ public:
 				handler->SendSysMessage("You can not do it now");
 				handler->SetSentErrorMessage(true);
 				return false;
-			}
-
-			player->RemoveAurasByType(SPELL_AURA_MOUNTED);
+            }
             
+            auto searchGUID = BuffCooldown.find(player->GetGUID());
+
+            if (searchGUID == BuffCooldown.end())
+                BuffCooldown[player->GetGUID()] = 0; // Leader GUID not found, initialize with 0
+                
             if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] < sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) || sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120) != 0)
             {
                 handler->SendSysMessage("You have to wait atleast %d seconds before using .buff again!",  sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120));
                 handler->SetSentErrorMessage(true);
 				return false;
             }
+            
+            player->RemoveAurasByType(SPELL_AURA_MOUNTED);
 
 			Kargatum_Buff::Kargatum_Buff_Container& sn = sKargatumBuff->GetBuffData();
 			for (auto i : sn)
