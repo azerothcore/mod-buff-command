@@ -51,7 +51,7 @@ public:
 		std::string ArgStr = (char*)args;
 
 		if (sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80) > 0) {
-			int MinLevel  = sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80);
+			uint8 MinLevel  = sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80);
 			if (player->getLevel() < sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80))
 			{
 				std::string MinLevelError = "You must be ";
