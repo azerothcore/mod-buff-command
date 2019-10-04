@@ -15,16 +15,23 @@ With this command, all the spell id's specified in the table are applied to the 
 
 ### Configuration:
 ```ini
-###################################################################################################
-#	mod-buff-command
+# Settings to control the .buff command
 #
-#    Buff.Command.Enable
-#        Description: Enable the ability to use the command .buff.
-#        Default: 1
-#
+#    BuffCommand.Enable
+#        Description: Enable the .buff command
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
 
-Buff.Command.Enable = 1
-###################################################################################################
+BuffCommand.Enable = 1
+
+# Settings to control the cooldown of .buff command
+#
+#    BuffCommand.Cooldown
+#        Description: Enable Cooldown for .buff command
+#        Default:     120 - (Enabled)
+#                     0 - (Disabled)
+
+BuffCommand.Cooldown = 120
 ```
 
 ### How to use:

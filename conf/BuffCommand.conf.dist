@@ -2,6 +2,15 @@
 ###################################################################################################
 # BUFF COMMAND
 #
+# Settings to control the .buff command
+#
+#    BuffCommand.Enable
+#        Description: Enable the .buff command
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+
+BuffCommand.Enable = 1
+
 # Settings to control the cooldown of .buff command
 #
 #    BuffCommand.Cooldown

@@ -49,6 +49,12 @@ public:
 	{
 		Player* player = handler->GetSession()->GetPlayer();
 		std::string ArgStr = (char*)args;
+        
+        if (sConfigMgr->GetIntDefault("BuffCommand.Enable", 1) == 0) {
+            handler->SendSysMessage("The command is currently disabled");
+            handler->SetSentErrorMessage(true);
+            return false;
+        }
 
 		if (sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80) > 0) {
 			uint8 MinLevel  = sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80);
