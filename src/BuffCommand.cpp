@@ -50,6 +50,20 @@ public:
 		Player* player = handler->GetSession()->GetPlayer();
 		std::string ArgStr = (char*)args;
 
+		if (sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80) > 0) {
+			uint8 MinLevel  = sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80);
+			if (player->getLevel() < sConfigMgr->GetIntDefault("BuffCommand.MinLevel", 80))
+			{
+				std::string MinLevelError = "You must be ";
+				if (MinLevel != 80)
+					MinLevelError += "atleast ";
+				MinLevelError += "level " + std::to_string(MinLevel) + " to use this command.";
+				handler->SendSysMessage((MinLevelError).c_str());
+	            handler->SetSentErrorMessage(true);
+				return false;
+			}
+		}
+
 		if (ArgStr == "reload" && AccountMgr::IsAdminAccount(player->GetSession()->GetSecurity()))
 		{
 			sLog->outString("Re-Loading Player Buff data...");
