@@ -11,5 +11,14 @@
 
 BuffCommand.Cooldown = 120
 
+# Settings to control the minimum level of .buff command
+#
+#    BuffCommand.MinLevel
+#        Description: Minimum level to use .buff command, use 0 to disable minimum level requirement
+#        Default:     80 - (Enabled)
+#                     0 - (Disabled)
+
+BuffCommand.MinLevel = 80
+
 #
 ###################################################################################################
