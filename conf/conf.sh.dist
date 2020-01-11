@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+## CUSTOM SQL - Important file used by the db_assembler.sh
+## Keep only the required variables (base sql files or updates, depending on the DB)
+
+
+## BASE SQL
+
+DB_WORLD_CUSTOM_PATHS+=(
+	$MOD_BUFF_COMMAND_ROOT"/sql/world/base/"
+)
+
+
+## UPDATES
+
+# DB_WORLD_UPDATE_PATHS+=(
+# 	$MOD_BUFF_COMMAND_ROOT"/sql/world/updates/"
+# )
