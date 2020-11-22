@@ -1,13 +1,7 @@
 # ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
-# mod-buff-command
+## mod-buff-command
 ### This is a module for [AzerothCore](http://www.azerothcore.org)
-- Latest build status with azerothcore: [![Build Status](https://travis-ci.org/azerothcore/mod-buff-command.svg?branch=master)](https://travis-ci.org/azerothcore/mod-buff-command)
-
-
-- Description
-- Configuration
-- How to use
-- Use database
+- Latest build status with azerothcore: [![Build Status](https://github.com/azerothcore/mod-buff-command/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/azerothcore/mod-buff-command)
 
 ### Description:
 Add custom command .buff for self buff
