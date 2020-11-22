@@ -3,12 +3,6 @@
 ### This is a module for [AzerothCore](http://www.azerothcore.org)
 - Latest build status with azerothcore: [![Build Status](https://github.com/azerothcore/mod-buff-command/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/azerothcore/mod-buff-command)
 
-
-- Description
-- Configuration
-- How to use
-- Use database
-
 ### Description:
 Add custom command .buff for self buff
 With this command, all the spell id's specified in the table are applied to the character `world`.`player_buff`
