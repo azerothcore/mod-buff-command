@@ -4,7 +4,7 @@
 #include "WorldSession.h"
 #include "Config.h"
 
-std::unordered_map<uint64, uint32> BuffCooldown;
+std::unordered_map<ObjectGuid, uint32> BuffCooldown;
 
 void Kargatum_Buff::LoadDB()
 {
@@ -49,7 +49,7 @@ public:
 	{
 		Player* player = handler->GetSession()->GetPlayer();
 		std::string ArgStr = (char*)args;
-        
+
         if (sConfigMgr->GetIntDefault("BuffCommand.Enable", 1) == 0) {
             handler->SendSysMessage("The command is currently disabled");
             handler->SetSentErrorMessage(true);
@@ -85,7 +85,7 @@ public:
 				handler->SetSentErrorMessage(true);
 				return false;
             }
-            
+
             auto searchGUID = BuffCooldown.find(player->GetGUID());
 
             if (searchGUID == BuffCooldown.end())
@@ -101,7 +101,7 @@ public:
             if (sWorld->GetGameTime() - BuffCooldown[player->GetGUID()] >= sConfigMgr->GetIntDefault("BuffCommand.Cooldown", 120)) {
             	BuffCooldown[player->GetGUID()] = sWorld->GetGameTime();
             }
-            
+
             player->RemoveAurasByType(SPELL_AURA_MOUNTED);
 
 			Kargatum_Buff::Kargatum_Buff_Container& sn = sKargatumBuff->GetBuffData();
