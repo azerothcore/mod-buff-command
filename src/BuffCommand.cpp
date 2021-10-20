@@ -6,6 +6,12 @@
 
 std::unordered_map<ObjectGuid, uint32> BuffCooldown;
 
+Kargatum_Buff* Kargatum_Buff::instance()
+{
+    static Kargatum_Buff instance;
+    return &instance;
+}
+
 void Kargatum_Buff::LoadDB()
 {
 	uint32 oldMSTime = getMSTime();

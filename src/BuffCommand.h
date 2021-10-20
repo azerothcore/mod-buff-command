@@ -10,6 +10,7 @@
 class Kargatum_Buff
 {
 public:
+	static Kargatum_Buff* instance();
 	void LoadDB();
 
 	typedef std::vector<uint32> Kargatum_Buff_Container;
@@ -19,6 +20,6 @@ private:
 	Kargatum_Buff_Container _buffStore;
 };
 
-#define sKargatumBuff ACE_Singleton<Kargatum_Buff, ACE_Null_Mutex>::instance()
+#define sKargatumBuff Kargatum_Buff::instance()
 
 #endif
