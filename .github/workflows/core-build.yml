@@ -1,13 +1,8 @@
-name: core-build-modules
-on:
-  workflow_call:
-    inputs:
-      module_repo:
-        required: true
-        type: string
-      module_branch:
-        required: false
-        type: string
+name: core-build
+  push:
+    branches:
+      - 'master'
+  pull_request:
 
 jobs:
   build:
