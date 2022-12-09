@@ -1,4 +1,5 @@
 name: core-build
+on:
   push:
     branches:
       - 'master'
