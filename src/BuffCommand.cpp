@@ -58,10 +58,9 @@ public:
         return commandTable;
     }
 
-    static bool HandleBuffCommand(ChatHandler *handler, const char *args)
+    static bool HandleBuffCommand(ChatHandler *handler, std::string args)
     {
         Player* player = handler->GetSession()->GetPlayer();
-        std::string ArgStr = (char*)args;
 
         if (sConfigMgr->GetOption<int>("BuffCommand.Enable", 1) == 0) {
             handler->SendSysMessage("The command is currently disabled");
@@ -83,7 +82,7 @@ public:
             }
         }
 
-        if (ArgStr == "reload" && AccountMgr::IsAdminAccount(player->GetSession()->GetSecurity()))
+        if (args == "reload" && AccountMgr::IsAdminAccount(player->GetSession()->GetSecurity()))
         {
             LOG_INFO("sql.sql", "Re-Loading Player Buff data...");
             sKargatumBuff->LoadDB();
