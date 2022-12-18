@@ -4,7 +4,7 @@
 - Latest build status with azerothcore: [![Build Status](https://github.com/azerothcore/mod-buff-command/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/azerothcore/mod-buff-command)
 
 ### Description:
-Add custom command .buff for self buff
+Add custom command `.mod_buff buff` for self buff
 With this command, all the spell id's specified in the table are applied to the character `world`.`player_buff`
 
 ### Configuration:
