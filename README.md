@@ -9,19 +9,19 @@ With this command, all the spell id's specified in the table are applied to the 
 
 ### Configuration:
 ```ini
-# Settings to control the .buff command
+# Settings to control the .mod_buff buff command
 #
 #    BuffCommand.Enable
-#        Description: Enable the .buff command
+#        Description: Enable the .mod_buff buff command
 #        Default:     1 - (Enabled)
 #                     0 - (Disabled)
 
 BuffCommand.Enable = 1
 
-# Settings to control the cooldown of .buff command
+# Settings to control the cooldown of .mod_buff buff command
 #
 #    BuffCommand.Cooldown
-#        Description: Enable Cooldown for .buff command
+#        Description: Enable Cooldown for .mod_buff buff command
 #        Default:     120 - (Enabled)
 #                     0 - (Disabled)
 
