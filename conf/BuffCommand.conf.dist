@@ -2,7 +2,7 @@
 ###################################################################################################
 # BUFF COMMAND
 #
-# Settings to control the .buff command
+# Settings to control the .mod_buff buff command
 #
 #    BuffCommand.Enable
 #        Description: Enable the .buff command
@@ -11,10 +11,10 @@
 
 BuffCommand.Enable = 1
 
-# Settings to control the cooldown of .buff command
+# Settings to control the cooldown of .mod_buff buff command
 #
 #    BuffCommand.Cooldown
-#        Description: Enables Cooldown for .buff command
+#        Description: Enables Cooldown for .mod_buff buff command
 #        Default:     120 - (Enabled)
 #                     0 - (Disabled)
 
@@ -22,7 +22,7 @@ BuffCommand.Cooldown = 120
 
 #
 #    BuffCommand.MinLevel
-#        Description: Minimum level to use .buff command, use 0 to disable minimum level requirement
+#        Description: Minimum level to use .mod_buff buff command, use 0 to disable minimum level requirement
 #        Default:     80 - (Enabled)
 #                     0 - (Disabled)
 
