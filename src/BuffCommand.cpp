@@ -70,7 +70,7 @@ public:
 
         if (sConfigMgr->GetOption<int>("BuffCommand.MinLevel", 80) > 0) {
             uint8 MinLevel  = sConfigMgr->GetOption<int>("BuffCommand.MinLevel", 80);
-            if (player->getLevel() < sConfigMgr->GetOption<int>("BuffCommand.MinLevel", 80))
+            if (player->GetLevel() < sConfigMgr->GetOption<int>("BuffCommand.MinLevel", 80))
             {
                 std::string MinLevelError = "You must be ";
                 if (MinLevel != 80)
