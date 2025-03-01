@@ -15,4 +15,4 @@ INSERT INTO `player_buff` VALUES (57623, NULL);
 INSERT INTO `player_buff` VALUES (61316, NULL);
 
 -- COMMAND
-INSERT INTO `command`(`name`, `security`, `help`) VALUES ('buff', 0, 'Syntax: .buff. Buff player.\r\n.buff reload - reload player_buff table.');
+INSERT INTO `command`(`name`, `security`, `help`) VALUES ('mod_buff', 0, 'Syntax: .mod_buff buff. Buff player.\r\n.mod_buff buff reload - reload player_buff table.');
